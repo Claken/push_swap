@@ -12,6 +12,8 @@ SRC			= push_swap_srcs/push_swap.c \
 			push_swap_srcs/check_data/check_params.c \
 			push_swap_srcs/check_data/functions_for_checking.c \
 			push_swap_srcs/check_data/error_so_exit.c \
+			push_swap_srcs/get_data/functions_for_stacks.c \
+			push_swap_srcs/get_data/create_stack_a.c \
 
 OBJ			= $(SRC:.c=.o)
 

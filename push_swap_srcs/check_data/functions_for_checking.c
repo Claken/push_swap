@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 18:11:11 by sachouam          #+#    #+#             */
-/*   Updated: 2021/05/22 18:14:45 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/05/23 13:15:03 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int
 	{
 		nbr = ft_atoi(tab[i]);
 		if (nbr > MAXINT || nbr < -MININT)
-			return (ft_error_exit("integer out of boudaries\n"));
+			return (ft_error_exit("integer out of limits\n"));
 	}
 	return (1);
 }
@@ -79,8 +79,7 @@ int
 	i = -1;
 	while (tab[++i])
 	{
-		if (tab[i + 1]
-			&& ft_atoi(tab[i]) > ft_atoi(tab[i + 1]))
+		if (tab[i + 1] && ft_atoi(tab[i]) > ft_atoi(tab[i + 1]))
 			return (0);
 	}
 	return (1);
