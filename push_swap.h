@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:24:19 by sachouam          #+#    #+#             */
-/*   Updated: 2021/05/24 23:56:10 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/05/25 20:59:16 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,14 @@ int					ft_check_int_min_and_max(char **tab);
 int					ft_check_if_no_duplicate(char **tab);
 int					ft_check_if_ascending_order(char **tab);
 int					ft_error_exit(char *sentence);
+
 t_stack				*ft_new_elem_in_stack(int integer);
 int					ft_add_elem_back(t_stack **stack, int integer);
+void				ft_push_elem_front(t_stack **stack, t_stack *elem);
+void				ft_push_elem_back(t_stack **stack, t_stack *elem);
+t_stack				*ft_remove_element(t_stack *elem);
 void				ft_clear_stack(t_stack **stack);
+
 int					ft_create_stack_a(t_stack **stack, int ac, char **av);
 
 #endif
