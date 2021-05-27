@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:24:19 by sachouam          #+#    #+#             */
-/*   Updated: 2021/05/25 20:59:16 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/05/27 21:34:46 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,9 @@ t_stack				*ft_remove_element(t_stack *elem);
 void				ft_clear_stack(t_stack **stack);
 
 int					ft_create_stack_a(t_stack **stack, int ac, char **av);
+
+void				ft_swap_stack(t_stack **stack, char c);
+void				ft_rotate_stack(t_stack **stack, char c);
+void				ft_reverse_rotate_stack(t_stack **stack, char c);
 
 #endif
