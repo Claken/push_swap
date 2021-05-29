@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 13:40:08 by sachouam          #+#    #+#             */
-/*   Updated: 2021/05/27 20:03:15 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/05/28 23:16:03 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,27 @@ t_stack
 int
 	ft_add_elem_back(t_stack **stack, int integer)
 {
-	t_stack	*tmp;
+	t_stack	*svg;
 
-	tmp = *stack;
-	if (!(*stack))
+	svg = *stack;
+	if ((*stack)->next == *stack)
 	{
-		*stack = ft_new_elem_in_stack(integer);
-		if (stack == NULL)
+		(*stack)->next = ft_new_elem_in_stack(integer);
+		if ((*stack)->next == NULL)
 			return (0);
+		(*stack)->next->next = *stack;
+		(*stack)->next->prev = *stack;
 	}
 	else
 	{
-		while ((*stack)->next != NULL)
+		while ((*stack)->next != svg)
 			*stack = (*stack)->next;
 		(*stack)->next = ft_new_elem_in_stack(integer);
 		if ((*stack)->next == NULL)
 			return (0);
 		(*stack)->next->prev = *stack;
-		*stack = tmp;
+		(*stack)->next->next = svg;
+		*stack = svg;
 	}
 	return (1);
 }
@@ -55,13 +58,29 @@ void
 	ft_clear_stack(t_stack **stack)
 {
 	t_stack	*svg;
+	t_stack	*curr;
 
 	svg = NULL;
-	while (*stack)
+	curr = (*stack)->next;
+	while (curr != *stack)
 	{
-		printf("%d\n", (*stack)->integer);
-		svg = (*stack)->next;
-		free(*stack);
-		*stack = svg;
+		svg = curr->next;
+		free(curr);
+		curr = svg;
 	}
+	free(*stack);
+	*stack = NULL;
+}
+
+t_stack
+	*ft_create_list(void)
+{
+	t_stack	*root;
+
+	root = malloc(sizeof(t_stack));
+	if (!root)
+		return (NULL);
+	root->prev = root;
+	root->next = root;
+	return (root);
 }

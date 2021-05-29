@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 20:01:56 by sachouam          #+#    #+#             */
-/*   Updated: 2021/05/28 00:44:33 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/05/29 02:37:16 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,45 +15,55 @@
 void
 	ft_push_elem_front(t_stack **stack, t_stack *elem)
 {
-	if (*stack)
-		elem->next = *stack;
-	*stack = elem;
+	if ((*stack)->next != *stack)
+	{
+		elem->next = (*stack)->next;
+		elem->next->prev = elem;
+	}
+	(*stack)->next = elem;
 	(*stack)->next->prev = *stack;
 }
 
 void
 	ft_push_elem_back(t_stack **stack, t_stack *elem)
 {
-	t_stack *tmp;
+	t_stack	*svg;
 
-	tmp = *stack;
-	if (!(*stack))
-		*stack = elem;
+	svg = *stack;
+	if ((*stack)->next == *stack)
+	{
+		(*stack)->next = elem;
+		(*stack)->next->next = *stack;
+		(*stack)->next->prev = *stack;
+	}
 	else
 	{
-		while ((*stack)->next != NULL)
+		while ((*stack)->next != svg)
 			*stack = (*stack)->next;
 		(*stack)->next = elem;
 		(*stack)->next->prev = *stack;
-		*stack = tmp;
+		(*stack)->next->next = svg;
+		*stack = svg;
 	}
 }
 
 t_stack
-	*ft_remove_element(t_stack *elem)
+	*ft_remove_element(t_stack *elem, t_stack **stack)
 {
 	t_stack *removed;
+	t_stack *before;
+	t_stack *after;
 
-	removed = elem;
-	if (elem->prev)
-		elem->prev->next = elem->next;
-	else
-		elem->prev = NULL;
-	if (elem->next)
-		elem->next->prev = elem->prev;
-	else
-		elem->next = NULL;
-	removed->next = NULL;
-	removed->prev = NULL;
+	removed = NULL;
+	if (elem != *stack)
+	{
+		removed = elem;
+		before = elem->prev;
+		after = elem->next;
+		before->next = elem->next;
+		after->prev = elem->prev;
+		removed->next = NULL;
+		removed->prev = NULL;
+	}
 	return (removed);
 }
