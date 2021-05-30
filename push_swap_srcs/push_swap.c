@@ -6,14 +6,14 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 17:01:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/05/29 03:23:40 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/05/31 01:14:10 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 static void
-	ft_print_stack(t_stack **stack_a)
+	ft_print_stack(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*svg;
 	t_stack	*curr;
@@ -41,8 +41,11 @@ static void
 	printf("stack integer before %d\n", (*stack_a)->next->integer);
 */
 	//ft_swap_stack(stack_a, 'a');
-	ft_reverse_rotate_stack(stack_a, 'a');
+	//ft_reverse_rotate_stack(stack_a, 'a');
 	//ft_rotate_stack(stack_a, 'a');
+	ft_push_stack_b(stack_a, stack_b, 'b');
+	ft_push_stack_b(stack_a, stack_b, 'b');
+	ft_push_stack_b(stack_a, stack_b, 'b');
 
 	curr = (*stack_a)->next;
 	i = -1;
@@ -55,6 +58,17 @@ static void
 		curr = curr->next;
 		printf("\n");
 	}
+	curr = (*stack_b)->next;
+	i = -1;
+	while (curr != *stack_b)
+	{
+		++i;
+		printf("elem N°%d = %d\n", i + 1, curr->integer);
+		if (curr->prev != *stack_b)
+			printf("elem prev %d = %d\n", i, curr->prev->integer);
+		curr = curr->next;
+		printf("\n");
+	}
 }
 
 int
@@ -63,14 +77,14 @@ int
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	stack_a = ft_create_list(); //NULL;
-	stack_b = ft_create_list(); //NULL;
+	stack_a = ft_create_list();
+	stack_b = ft_create_list();
 	if (ac < 2 || !ft_check_params(++av)
 		|| !ft_create_stack_a(&stack_a, ac, av))
 		return (0);
 	printf("cool\n");
-	ft_print_stack(&stack_a);
+	ft_print_stack(&stack_a, &stack_b);
 	ft_clear_stack(&stack_a);
-	free(stack_b);
+	ft_clear_stack(&stack_b);
 	return (0);
 }

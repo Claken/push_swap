@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 23:41:05 by sachouam          #+#    #+#             */
-/*   Updated: 2021/05/29 03:18:01 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/05/30 23:54:13 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,9 @@ int
 	while (curr->next != *stack)
 		curr = curr->next;
 	(*stack)->prev = curr;
+	printf("root = %p\n", *stack);
+	printf("curr->int = %d\n", curr->integer);
+	printf("stack->prev->int = %d\n", (*stack)->prev->integer);
+	printf("stack->prev->next = %p\n", (*stack)->prev->next);
 	return (1);
 }

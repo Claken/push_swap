@@ -6,11 +6,24 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 13:40:08 by sachouam          #+#    #+#             */
-/*   Updated: 2021/05/28 23:16:03 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/05/31 00:07:24 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+t_stack
+	*ft_create_list(void)
+{
+	t_stack	*root;
+
+	root = malloc(sizeof(t_stack));
+	if (!root)
+		return (NULL);
+	root->prev = root;
+	root->next = root;
+	return (root);
+}
 
 t_stack
 	*ft_new_elem_in_stack(int integer)
@@ -64,23 +77,12 @@ void
 	curr = (*stack)->next;
 	while (curr != *stack)
 	{
+		printf("here\n");
 		svg = curr->next;
 		free(curr);
 		curr = svg;
 	}
+	printf("fin\n");
 	free(*stack);
 	*stack = NULL;
-}
-
-t_stack
-	*ft_create_list(void)
-{
-	t_stack	*root;
-
-	root = malloc(sizeof(t_stack));
-	if (!root)
-		return (NULL);
-	root->prev = root;
-	root->next = root;
-	return (root);
 }

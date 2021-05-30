@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 20:01:56 by sachouam          #+#    #+#             */
-/*   Updated: 2021/05/29 02:37:16 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/05/31 00:50:08 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void
 	}
 	(*stack)->next = elem;
 	(*stack)->next->prev = *stack;
+	if ((*stack)->next->next == NULL)
+		(*stack)->next->next = *stack;
 }
 
 void
