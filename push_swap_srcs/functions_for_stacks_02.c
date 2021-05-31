@@ -6,11 +6,22 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 20:01:56 by sachouam          #+#    #+#             */
-/*   Updated: 2021/05/31 00:50:08 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/05/31 18:29:17 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void
+	ft_put_last_in_root_prev(t_stack **stack)
+{
+	t_stack *curr;
+
+	curr = (*stack)->next;
+	while (curr->next != *stack)
+		curr = curr->next;
+	(*stack)->prev = curr;
+}
 
 void
 	ft_push_elem_front(t_stack **stack, t_stack *elem)
@@ -24,6 +35,9 @@ void
 	(*stack)->next->prev = *stack;
 	if ((*stack)->next->next == NULL)
 		(*stack)->next->next = *stack;
+	if ((*stack)->prev == *stack
+		|| (*stack)->prev == NULL)
+	ft_put_last_in_root_prev(stack);
 }
 
 void

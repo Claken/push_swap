@@ -1,12 +1,16 @@
-NAME		= push_swap
+U_NAME		:= $(shell uname -s)
 
-LIBFT		= libft
+NAME		:= push_swap
 
-NAME_LIBFT	= libft/libft.a
+LIBFT		:= libft
 
-CCL			= clang
+NAME_LIBFT	:= libft/libft.a
 
-CCM			= gcc
+ifeq ($(U_NAME), Darwin)
+	CC		= gcc
+else
+	CC		= clang
+endif
 
 SRC			= push_swap_srcs/push_swap.c \
 			push_swap_srcs/check_data/check_params.c \
@@ -25,13 +29,13 @@ DEP			= $(SRC:.c=.d)
 all:		$(NAME)
 
 %.o : %.c
-			$(CCL) -I . -o $@ -c $<
+			$(CC) -I . -o $@ -c $<
 
 $(NAME_LIBFT):
 			make -C $(LIBFT)
 
 $(NAME):	$(NAME_LIBFT) $(OBJ)
-			$(CCL) $(OBJ) $(NAME_LIBFT) -o $(NAME)
+			$(CC) $(OBJ) $(NAME_LIBFT) -o $(NAME)
 
 clean:
 			rm -rf $(OBJ)

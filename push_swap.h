@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:24:19 by sachouam          #+#    #+#             */
-/*   Updated: 2021/05/31 01:57:44 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/05/31 18:33:49 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int					ft_error_exit(char *sentence);
 
 t_stack				*ft_new_elem_in_stack(int integer);
 int					ft_add_elem_back(t_stack **stack, int integer);
+void				ft_put_last_in_root_prev(t_stack **stack);
 void				ft_push_elem_front(t_stack **stack, t_stack *elem);
 void				ft_push_elem_back(t_stack **stack, t_stack *elem);
 t_stack				*ft_remove_element(t_stack *elem, t_stack **stack);

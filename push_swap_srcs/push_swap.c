@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 17:01:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/05/31 02:06:36 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/05/31 17:57:59 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static void
 	t_stack	*curr;
 	t_stack	*elem;
 
-	printf("stack->prev %d\n", (*stack_a)->prev->integer);
 	int		i;
 /*
 	i = -1;
@@ -48,7 +47,6 @@ static void
 	ft_push_stack_b(stack_a, stack_b, 'b');
 	ft_rotate_both(stack_a, stack_b);
 
-	printf("stack->prev %d\n", (*stack_b)->prev->integer);
 	curr = (*stack_a)->next;
 	i = -1;
 	while (curr != *stack_a)
@@ -84,7 +82,6 @@ int
 	if (ac < 2 || !ft_check_params(++av)
 		|| !ft_create_stack_a(&stack_a, ac, av))
 		return (0);
-	printf("cool\n");
 	ft_print_stack(&stack_a, &stack_b);
 	ft_clear_stack(&stack_a);
 	ft_clear_stack(&stack_b);
