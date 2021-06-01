@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:24:19 by sachouam          #+#    #+#             */
-/*   Updated: 2021/05/31 18:33:49 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/01 21:23:10 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void				ft_push_elem_back(t_stack **stack, t_stack *elem);
 t_stack				*ft_remove_element(t_stack *elem, t_stack **stack);
 void				ft_clear_stack(t_stack **stack);
 t_stack				*ft_create_list(void);
+int					ft_stack_size(t_stack *root);
 
 int					ft_create_stack_a(t_stack **stack, int ac, char **av);
 

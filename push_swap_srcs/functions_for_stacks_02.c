@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 20:01:56 by sachouam          #+#    #+#             */
-/*   Updated: 2021/05/31 18:29:17 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/01 21:22:30 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,21 @@ t_stack
 		removed->prev = NULL;
 	}
 	return (removed);
+}
+
+int
+	ft_stack_size(t_stack *root)
+{
+	int		i;
+	t_stack	*curr;
+
+	i = 0;
+	if (!(curr = root->next))
+		return (0);
+	while (curr != root)
+	{
+		curr = curr->next;
+		i++;
+	}
+	return (i);
 }

@@ -6,11 +6,13 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 17:01:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/05/31 17:57:59 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/01 21:38:01 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+
 
 static void
 	ft_print_stack(t_stack **stack_a, t_stack **stack_b)
@@ -18,35 +20,18 @@ static void
 	t_stack	*svg;
 	t_stack	*curr;
 	t_stack	*elem;
-
+	double	size;
 	int		i;
-/*
-	i = -1;
-	curr = (*stack_a)->next;
-	while (++i < 3)
-		curr = curr->next;
-	printf("data curr %d\n", curr->integer);
-	elem = ft_remove_element(curr, stack_a);
-	printf("data elem %d\n", elem->integer);
-	ft_push_elem_front(stack_a, elem);
-	i = -1;
-	while (++i < 4)
-		curr = curr->next;
-	printf("data curr %d\n", curr->integer);
-	elem = ft_remove_element(curr, stack_a);
-	printf("data elem %d\n", elem->integer);
-	ft_push_elem_back(stack_a, elem);
-	svg = *stack_a;
-	printf("stack integer before %d\n", (*stack_a)->next->integer);
-*/
-	//ft_swap_stack(stack_a, 'a');
-	//ft_reverse_rotate_stack(stack_a, 'a');
-	//ft_rotate_stack(stack_a, 'a');
-	ft_push_stack_b(stack_a, stack_b, 'b');
-	ft_push_stack_b(stack_a, stack_b, 'b');
-	ft_push_stack_b(stack_a, stack_b, 'b');
-	ft_rotate_both(stack_a, stack_b);
 
+	size = ft_stack_size(*stack_a) / 2;
+	printf("size %f\n", size);
+	ft_push_stack_b(stack_a, stack_b, 'b');
+	ft_push_stack_b(stack_a, stack_b, 'b');
+	ft_push_stack_b(stack_a, stack_b, 'b');
+	ft_reverse_rotate_both(stack_a, stack_b);
+	ft_push_stack_a(stack_a, stack_b, 'a');
+	ft_push_stack_a(stack_a, stack_b, 'a');
+	ft_push_stack_a(stack_a, stack_b, 'a');
 	curr = (*stack_a)->next;
 	i = -1;
 	while (curr != *stack_a)
