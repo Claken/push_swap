@@ -6,13 +6,48 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 17:01:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/01 21:38:01 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/02 19:55:30 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+static int
+	ft_find_mediane(t_stack **root)
+{
+	t_stack	*cpy;
+	t_stack	*curr;
+	int		sup;
+	int		inf;
+	int		half;
 
+	half = ft_stack_size(*root) / 2;
+	curr = (*root)->next;
+	while (curr != *root)
+	{
+		cpy = (*root)->next;
+		sup = 0;
+		inf = 0;
+		while (cpy != *root)
+		{
+			if (cpy->integer >= curr->integer)
+				sup++;
+			if (cpy->integer <= curr->integer)
+				inf++;
+			cpy = cpy->next;
+		}
+		printf("sup %d\n", sup);
+		printf("inf %d\n", inf);
+		printf("half%d\n", half);
+		//printf("int %d\n\n", curr->integer);
+		if ((sup == half || sup == half + 1)
+			&& (inf == half || inf == half + 1))
+			printf("\nmed %d\n", curr->integer);
+		curr = curr->next;
+		printf("\n");
+	}
+	return (0);
+}
 
 static void
 	ft_print_stack(t_stack **stack_a, t_stack **stack_b)
@@ -20,11 +55,11 @@ static void
 	t_stack	*svg;
 	t_stack	*curr;
 	t_stack	*elem;
-	double	size;
+	int		med;
 	int		i;
 
-	size = ft_stack_size(*stack_a) / 2;
-	printf("size %f\n", size);
+	med = ft_find_mediane(stack_a);
+	//printf("med = %d\n", med);
 	ft_push_stack_b(stack_a, stack_b, 'b');
 	ft_push_stack_b(stack_a, stack_b, 'b');
 	ft_push_stack_b(stack_a, stack_b, 'b');
