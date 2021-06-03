@@ -17,6 +17,7 @@ SRC			= push_swap_srcs/push_swap.c \
 			push_swap_srcs/get_data/create_stack_a.c \
 			push_swap_srcs/operations/the_operations_01.c \
 			push_swap_srcs/operations/the_operations_02.c \
+			push_swap_srcs/algorithm/algorithm_01.c \
 
 OBJ			= $(SRC:.c=.o)
 

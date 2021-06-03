@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:24:19 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/02 16:17:42 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/03 17:35:39 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ void				ft_push_stack_a(t_stack **stack_a, t_stack **stack_b, char c);
 void				ft_push_stack_b(t_stack **stack_a, t_stack **stack_b, char c);
 void				ft_rotate_stack(t_stack **stack, char c);
 void				ft_reverse_rotate_stack(t_stack **stack, char c);
+
+int					ft_is_number_of_int_even(t_stack **root);
+int					ft_find_mediane(t_stack **root);
 
 void				ft_swap_both(t_stack **a, t_stack **b);
 void				ft_rotate_both(t_stack **a, t_stack **b);
