@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 23:41:05 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/03 19:37:27 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/09 16:33:09 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,32 +24,28 @@ static int
 	i = -1;
 	while (tab[++i])
 	{
-		if (!ft_add_elem_back(stack, ft_atoi(tab[i])))
+		if (!ft_add_to_bottom(stack, ft_atoi(tab[i])))
 		{
 			ft_free_tab(tab);
 			return (0);
 		}
 	}
 	ft_free_tab(tab);
-	ft_put_last_in_root_prev(stack);
 	return (1);
 }
 
 int
 	ft_create_stack_a(t_stack **stack, int ac, char **av)
 {
-	int		i;
+	int	i;
 
 	i = -1;
 	if (ac < 3)
 		return (ft_if_one_param(stack, *av));
 	while (++i < ac - 1)
 	{
-		if (!ft_add_elem_back(stack, ft_atoi(av[i])))
-		{
+		if (!ft_add_to_bottom(stack, ft_atoi(av[i])))
 			return (0);
-		}
 	}
-	ft_put_last_in_root_prev(stack);
 	return (1);
 }

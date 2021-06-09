@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 13:40:08 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/02 16:17:58 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/09 18:46:30 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,31 +39,55 @@ t_stack
 	return (elem);
 }
 
-int
-	ft_add_elem_back(t_stack **stack, int integer)
+static int
+	ft_add_elem_before(t_stack *elem, int integer)
 {
-	t_stack	*svg;
+	t_stack	*new;
 
-	svg = *stack;
-	if ((*stack)->next == *stack)
+	new = ft_new_elem_in_stack(integer);
+	if (new)
 	{
-		(*stack)->next = ft_new_elem_in_stack(integer);
-		if ((*stack)->next == NULL)
-			return (0);
-		(*stack)->next->next = *stack;
-		(*stack)->next->prev = *stack;
+		new->integer = integer;
+		new->prev = elem->prev;
+		new->next = elem;
+		elem->prev->next = new;
+		elem->prev = new;
+		return (1);
 	}
-	else
+	return (0);
+}
+
+static int
+	ft_add_elem_after(t_stack *elem, int integer)
+{
+	t_stack	*new;
+
+	new = ft_new_elem_in_stack(integer);
+	if (new)
 	{
-		while ((*stack)->next != svg)
-			*stack = (*stack)->next;
-		(*stack)->next = ft_new_elem_in_stack(integer);
-		if ((*stack)->next == NULL)
-			return (0);
-		(*stack)->next->prev = *stack;
-		(*stack)->next->next = svg;
-		*stack = svg;
+		new->integer = integer;
+		new->prev = elem;
+		new->next = elem->next;
+		elem->next->prev = new;
+		elem->next = new;
+		return (1);
 	}
+	return (0);
+}
+
+int
+	ft_add_to_top(t_stack **root, int integer)
+{
+	if (!ft_add_elem_after(*root, integer))
+		return (0);
+	return (1);
+}
+
+int 
+	ft_add_to_bottom(t_stack **root, int integer)
+{
+	if (!ft_add_elem_before(*root, integer))
+		return (0);
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:24:19 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/03 17:35:39 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/09 18:46:44 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,6 @@ int					ft_check_if_ascending_order(char **tab);
 int					ft_error_exit(char *sentence);
 
 t_stack				*ft_new_elem_in_stack(int integer);
-int					ft_add_elem_back(t_stack **stack, int integer);
-void				ft_put_last_in_root_prev(t_stack **stack);
-void				ft_push_elem_front(t_stack **stack, t_stack *elem);
-void				ft_push_elem_back(t_stack **stack, t_stack *elem);
-t_stack				*ft_remove_element(t_stack *elem, t_stack **stack);
 void				ft_clear_stack(t_stack **stack);
 t_stack				*ft_create_list(void);
 int					ft_stack_size(t_stack *root);
@@ -58,5 +53,12 @@ int					ft_find_mediane(t_stack **root);
 void				ft_swap_both(t_stack **a, t_stack **b);
 void				ft_rotate_both(t_stack **a, t_stack **b);
 void				ft_reverse_rotate_both(t_stack **a, t_stack **b);
+
+
+int					ft_add_to_top(t_stack **root, int integer);
+int					ft_add_to_bottom(t_stack **root, int integer);
+void				ft_delete_elem(t_stack *elem);
+void				ft_delete_first_elem(t_stack **root);
+void				ft_delete_last_elem(t_stack **root);
 
 #endif
