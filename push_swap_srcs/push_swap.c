@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 17:01:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/09 19:49:24 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/10 12:18:06 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,77 @@ static void
 	}
 }
 
+static int
+	check_if_ascending_order(t_stack **root)
+{
+	int		size;
+	int		i;
+	t_stack	*curr;
+
+	size = ft_stack_size(*root);
+	i = -1;
+	curr = (*root)->next;
+	while (++i < size)
+	{
+		if (curr->next != *root
+			&& curr->integer > curr->next->integer)
+			return (0);
+		curr = curr->next;
+	}
+	return (1);
+}
+
+void
+	ft_sort_three_integers(t_stack **a)
+{
+	int		top;
+	int		middle;
+	int		bottom;
+
+	while (!check_if_ascending_order(a))
+	{
+		top = (*a)->next->integer;
+		middle = (*a)->next->next->integer;
+		bottom = (*a)->next->next->next->integer;
+		if ((top > middle && middle < bottom && bottom > top)
+			|| (top > middle && middle > bottom && bottom < top)
+			|| (top < middle && middle > bottom && bottom > top))
+			ft_swap_stack(a, 'a');
+		else if (top > middle && middle < bottom && bottom < top)
+			ft_rotate_stack(a, 'a');
+		else if (top < middle && middle > bottom && bottom < top)
+			ft_reverse_rotate_stack(a, 'a');
+	}
+}
+/*
+void
+	ft_sort_3_integers(t_stack **a)
+{
+	int		top;
+	int		middle;
+	int		bottom;
+
+	top = (*a)->next->integer;
+	middle = (*a)->next->next->integer;
+	bottom = (*a)->next->next->next->integer;
+	if (top > middle && middle < bottom && bottom > top)
+		ft_swap_stack(a, 'a');
+	else if (top > middle && middle > bottom && bottom < top)
+	{
+		ft_swap_stack(a, 'a');
+		ft_reverse_rotate_stack(a, 'a');
+	}
+	else if (top > middle && middle < bottom && bottom < top)
+		ft_rotate_stack(a, 'a');
+	else if (top < middle && middle > bottom && bottom > top)
+	{
+		ft_swap_stack(a, 'a');
+		ft_rotate_stack(a, 'a');
+	}
+	else if (top < middle && middle > bottom && bottom < top)
+		ft_reverse_rotate_stack(a, 'a');
+}
+*/
 static void
 	ft_print_stack(t_stack **stack_a, t_stack **stack_b)
 {
@@ -140,8 +211,9 @@ static void
 	printf("med = %d\n", med);
 	printf("even = %d\n", even);
 	printf("half = %d\n", half);
-	ft_how_you_rotate_two(med, half, stack_a, 'a');
+	//ft_how_you_rotate_two(med, half, stack_a, 'a');
 	ft_push_b_if_necessary(stack_a, stack_b, med);
+	ft_sort_three_integers(stack_a);
 	ft_rotate_b_if_necessary(stack_a, stack_b);
 	//ft_reverse_rotate_both(stack_a, stack_b);
 	//ft_reverse_rotate_stack(stack_a, 'a');
