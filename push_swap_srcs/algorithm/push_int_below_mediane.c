@@ -6,11 +6,11 @@
 /*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 19:46:56 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/11 19:47:16 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/11 23:53:51 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.c"
+#include "../../push_swap.h"
 
 static void
 	ft_how_you_rotate(int med, int half, t_stack **root, int c)
@@ -32,7 +32,7 @@ static void
 }
 
 void
-	ft_push_b_or_rotate(t_stack **a, t_stack **b, int med)
+	ft_push_b_or_rotate_a(t_stack **a, t_stack **b, int med)
 {
 	t_stack	*svg;
 	int		size;
@@ -49,8 +49,8 @@ void
 		if ((*a)->integer < med)
 		{
 			*a = svg;
-			ft_how_you_rotate_two(med, (size / 2), a, 'a');
-			ft_push_b_or_rotate(a, b, med);
+			ft_how_you_rotate(med, (size / 2), a, 'a');
+			ft_push_b_or_rotate_a(a, b, med);
 		}
 		*a = (*a)->next;
 	}

@@ -12,13 +12,17 @@ SRC			= push_swap_srcs/push_swap.c \
 			push_swap_srcs/check_data/check_params.c \
 			push_swap_srcs/check_data/functions_for_checking.c \
 			push_swap_srcs/check_data/error_so_exit.c \
-			push_swap_srcs/functions_for_deleting_element.c \
-			push_swap_srcs/functions_for_moving_element.c \
-			push_swap_srcs/functions_for_stacks_01.c \
+			push_swap_srcs/linked_list/functions_for_deleting_element.c \
+			push_swap_srcs/linked_list/functions_for_moving_element.c \
+			push_swap_srcs/linked_list/functions_for_stacks_01.c \
 			push_swap_srcs/get_data/create_stack_a.c \
 			push_swap_srcs/operations/the_operations_01.c \
 			push_swap_srcs/operations/the_operations_02.c \
-			push_swap_srcs/algorithm/algorithm_01.c \
+			push_swap_srcs/algorithm/functions_for_algorithm.c \
+			push_swap_srcs/algorithm/functions_for_mediane.c \
+			push_swap_srcs/algorithm/push_int_back_in_a.c \
+			push_swap_srcs/algorithm/push_int_below_mediane.c \
+			push_swap_srcs/algorithm/sort_three_integers.c \
 
 OBJ			= $(SRC:.c=.o)
 
