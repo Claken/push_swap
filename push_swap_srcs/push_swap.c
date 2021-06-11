@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 17:01:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/10 12:18:06 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/11 11:33:54 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,26 +32,29 @@ static void
 }
 
 static void
-	ft_push_b_if_necessary(t_stack **a, t_stack **b, int med)
+	ft_push_b_or_rotate(t_stack **a, t_stack **b, int med)
 {
-	t_stack	*curr;
+	t_stack	*svg;
 	int		size;
 	int		i;
 
 	while ((*a)->next->integer < med)
 		ft_push_stack_b(a, b, 'b');
-	curr = (*a)->next;
+	svg = *a;
 	size = ft_stack_size(*a);
 	i = -1;
-	while (++i < size)
+	*a = (*a)->next;
+	while (*a != svg)
 	{
-		if (curr->integer < med)
+		if ((*a)->integer < med)
 		{
+			*a = svg;
 			ft_how_you_rotate_two(med, (size / 2), a, 'a');
-			ft_push_b_if_necessary(a, b, med);
+			ft_push_b_or_rotate(a, b, med);
 		}
-		curr = curr->next;
+		*a = (*a)->next;
 	}
+	*a = svg;
 }
 
 static int
@@ -108,7 +111,7 @@ static void
 }
 
 static void
-	ft_rotate_b_if_necessary(t_stack **a, t_stack **b)
+	ft_rotate_b_or_push_a(t_stack **a, t_stack **b)
 {
 	int	max;
 	int	half;
@@ -212,11 +215,16 @@ static void
 	printf("even = %d\n", even);
 	printf("half = %d\n", half);
 	//ft_how_you_rotate_two(med, half, stack_a, 'a');
-	ft_push_b_if_necessary(stack_a, stack_b, med);
+	printf("1\n");
+	if (ft_stack_size(*stack_a) > 3)
+		ft_push_b_or_rotate(stack_a, stack_b, med);
+	printf("2\n");
 	ft_sort_three_integers(stack_a);
-	ft_rotate_b_if_necessary(stack_a, stack_b);
+	printf("3\n");
+	if ((*stack_b)->next != *stack_b)
+		ft_rotate_b_or_push_a(stack_a, stack_b);
 	//ft_reverse_rotate_both(stack_a, stack_b);
-	//ft_reverse_rotate_stack(stack_a, 'a');
+	//ft_reverse_rotate_stack(stack_a, 'a');²
 	//ft_rotate_stack(stack_a, 'a');
 	//ft_swap_stack(stack_a, 'a');
 	//ft_push_stack_b(stack_a, stack_b, 'b');
