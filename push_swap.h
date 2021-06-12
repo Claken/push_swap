@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:24:19 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/11 23:50:09 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/12 02:22:08 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,10 @@ int					ft_stack_size(t_stack *root);
 int					ft_create_stack_a(t_stack **stack, int ac, char **av);
 
 void				ft_swap_stack(t_stack **stack, char c);
-void				ft_push_stack_a(t_stack **stack_a, t_stack **stack_b, char c);
-void				ft_push_stack_b(t_stack **stack_a, t_stack **stack_b, char c);
+void				ft_push_stack_a(t_stack **stack_a,
+						t_stack **stack_b, char c);
+void				ft_push_stack_b(t_stack **stack_a,
+						t_stack **stack_b, char c);
 void				ft_rotate_stack(t_stack **stack, char c);
 void				ft_reverse_rotate_stack(t_stack **stack, char c);
 

@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 13:40:08 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/12 00:18:45 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/12 02:11:07 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,10 @@ void
 	curr = (*stack)->next;
 	while (curr != *stack)
 	{
-		printf("here\n");
 		svg = curr->next;
 		free(curr);
 		curr = svg;
 	}
-	printf("fin\n");
 	free(*stack);
 	*stack = NULL;
 }
@@ -66,8 +64,7 @@ int
 	t_stack	*curr;
 
 	i = 0;
-	if (!(curr = root->next))
-		return (0);
+	curr = root->next;
 	while (curr != root)
 	{
 		curr = curr->next;
