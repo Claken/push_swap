@@ -6,13 +6,13 @@
 /*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 19:43:05 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/11 19:56:47 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/15 16:43:18 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-int
+static int
 	ft_is_number_of_int_even(t_stack **root)
 {
 	t_stack	*curr;

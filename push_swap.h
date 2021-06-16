@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:24:19 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/12 02:22:08 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/16 12:48:09 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,15 @@ void				ft_push_stack_b(t_stack **stack_a,
 void				ft_rotate_stack(t_stack **stack, char c);
 void				ft_reverse_rotate_stack(t_stack **stack, char c);
 
-int					ft_is_number_of_int_even(t_stack **root);
 int					ft_find_mediane(t_stack **root);
 int					ft_find_third_greater(t_stack **root);
 int					ft_find_max(t_stack **root);
+int					ft_find_min(t_stack **root);
+//void				ft_how_you_rotate(int val, int half, t_stack **root, int c);
+
 void				ft_rotate_b_or_push_a(t_stack **a, t_stack **b);
-void				ft_push_b_or_rotate_a(t_stack **a, t_stack **b, int med);
+void				ft_push_the_rest_in_b(t_stack **a, t_stack **b, int max, int min);
+void				ft_push_b_or_rotate_a(t_stack **a, t_stack **b, int med, int min);
 void				ft_sort_three_integers(t_stack **a);
 
 void				ft_swap_both(t_stack **a, t_stack **b);
@@ -66,5 +69,7 @@ int					ft_add_to_bottom(t_stack **root, int integer);
 void				ft_delete_elem(t_stack *elem);
 void				ft_delete_first_elem(t_stack **root);
 void				ft_delete_last_elem(t_stack **root);
+
+void				ft_print_stack(t_stack **stack_a, t_stack **stack_b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 17:01:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/14 11:26:14 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/16 14:23:15 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,23 @@ static void
 {
 	int	med;
 	int	third;
+	int	min;
+	int	max;
 
 	med = ft_find_mediane(a);
 	third = ft_find_third_greater(a);
+	min = ft_find_min(a);
+	max = ft_find_max(a);
 	if (ft_stack_size(*a) > 3)
 	{
-		ft_push_b_or_rotate_a(a, b, med);
-		ft_push_b_or_rotate_a(a, b, third);
+		ft_push_b_or_rotate_a(a, b, med, min);
+		ft_push_the_rest_in_b(a, b, max, min);
+		//ft_push_b_or_rotate_a(a, b, third);
 	}
 	ft_sort_three_integers(a);
-	if ((*b)->next != *b)
-		ft_rotate_b_or_push_a(a, b);
+	//ft_push_stack_a(a, b, 'a');
+	//if ((*b)->next != *b)
+	//	ft_rotate_b_or_push_a(a, b);
 }
 
 int
@@ -45,6 +51,9 @@ int
 	if (!ft_create_stack_a(&stack_a, ac, av))
 		return (0);
 	ft_sorting_stack_a(&stack_a, &stack_b);
+
+	ft_print_stack(&stack_a, &stack_b);
+
 	ft_clear_stack(&stack_a);
 	ft_clear_stack(&stack_b);
 	return (0);

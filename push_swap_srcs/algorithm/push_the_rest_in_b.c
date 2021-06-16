@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_int_below_mediane.c                           :+:      :+:    :+:   */
+/*   push_the_rest_in_b.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 19:46:56 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/16 12:40:28 by sachouam         ###   ########.fr       */
+/*   Created: 2021/06/16 11:57:53 by sachouam          #+#    #+#             */
+/*   Updated: 2021/06/16 14:06:55 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,24 @@ static void
 }
 
 void
-	ft_push_b_or_rotate_a(t_stack **a, t_stack **b, int med, int min)
+	ft_push_the_rest_in_b(t_stack **a, t_stack **b, int max, int min)
 {
 	t_stack	*svg;
 	int		size;
 
-	while ((*a)->next->integer < med
-		&& (*a)->next->integer != min)
+	while ((*a)->next->integer != max
+		&& (*a)->next->integer != min && ft_stack_size(*a) > 3)
 		ft_push_stack_b(a, b, 'b');
 	svg = *a;
 	size = ft_stack_size(*a);
 	*a = (*a)->next;
-	while (*a != svg)
+	while (*a != svg && ft_stack_size(*a) > 3)
 	{
-		if ((*a)->integer < med && (*a)->integer != min)
+		if ((*a)->integer != min && (*a)->integer != max)
 		{
 			*a = svg;
 			ft_how_you_rotate((*a)->integer, (size / 2), a, 'a');
-			ft_push_b_or_rotate_a(a, b, med, min);
+			ft_push_the_rest_in_b(a, b, max, min);
 		}
 		*a = (*a)->next;
 	}
