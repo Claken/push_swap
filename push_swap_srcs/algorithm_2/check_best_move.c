@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 18:55:23 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/22 02:06:10 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/23 00:01:18 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int
 {
 	t_stack	*curr;
 	int		i;
+	int		half;
 
 	curr = (*b)->next;
 	i = 0;
@@ -66,7 +67,6 @@ int
 		movb = ft_check_nb_of_move_for_b(b, curr->integer);
 		if (movb > (ft_stack_size(*b) / 2))
 			movb = ft_stack_size(*b) - movb;
-		printf("mova et movb %d %d\n", mova, movb);
 		if (curr->prev == *b || (mova + movb) < min)
 		{
 			min = mova + movb;
