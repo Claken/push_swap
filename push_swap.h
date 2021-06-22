@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:24:19 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/16 12:48:09 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/22 01:11:17 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,9 @@ void				ft_delete_first_elem(t_stack **root);
 void				ft_delete_last_elem(t_stack **root);
 
 void				ft_print_stack(t_stack **stack_a, t_stack **stack_b);
+
+int					ft_check_nb_of_move_for_a(t_stack **a, int b);
+int					ft_check_nb_of_move_for_b(t_stack **b, int bi);
+int					ft_check_best_move(t_stack **a, t_stack **b);
 
 #endif

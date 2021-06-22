@@ -6,7 +6,7 @@
 /*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 19:48:15 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/11 19:48:53 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/18 10:52:32 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void
 		ft_reverse_rotate_stack(root, c);
 }
 
+/*
 void
 	ft_rotate_b_or_push_a(t_stack **a, t_stack **b)
 {
@@ -43,6 +44,23 @@ void
 		half = ft_stack_size(*b) / 2;
 		while ((*b)->next->integer != max)
 			ft_how_you_rotate(max, half, b, 'b');
+		ft_push_stack_a(a, b, 'a');
+	}
+}
+*/
+
+void
+	ft_rotate_b_or_push_a(t_stack **a, t_stack **b)
+{
+	int	min;
+	int	half;
+
+	while ((*b)->next != *b)
+	{
+		min = ft_find_min(b);
+		half = ft_stack_size(*b) / 2;
+		while ((*b)->next->integer != min)
+			ft_how_you_rotate(min, half, b, 'b');
 		ft_push_stack_a(a, b, 'a');
 	}
 }
