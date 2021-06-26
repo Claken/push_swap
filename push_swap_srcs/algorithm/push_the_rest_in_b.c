@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 11:57:53 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/16 14:06:55 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/27 01:15:32 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void
 	{
 		if ((*a)->integer != min && (*a)->integer != max)
 		{
-			*a = svg;
 			ft_how_you_rotate((*a)->integer, (size / 2), a, 'a');
+			*a = svg;
 			ft_push_the_rest_in_b(a, b, max, min);
 		}
 		*a = (*a)->next;

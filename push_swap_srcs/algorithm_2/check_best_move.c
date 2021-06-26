@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 18:55:23 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/26 17:50:29 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/27 00:50:43 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,42 +20,42 @@ int
 
 	curr = (*a)->next;
 	i = -1;
-	printf("b = %d\n", b);
+	//printf("b = %d\n", b);
 	while (curr != *a)
 	{
 		i++;
-		printf("i = %d\n", i);
-		printf("curr->int = %d\n", curr->integer);
+		//printf("i = %d\n", i);
+		//printf("curr->int = %d\n", curr->integer);
 		if (curr->prev == *a)
 		{
-			printf("curr->prev %p\n", curr->prev);
+			//printf("curr->prev %p\n", curr->prev);
 			if (b > curr->prev->prev->integer
 				&& b < curr->integer)
 			{
-				printf("curr->prev->prev->integer %d\n", curr->prev->prev->integer);
-				printf("curr->integer %d\n", curr->integer);
-				printf("\n");
+				//printf("curr->prev->prev->integer %d\n", curr->prev->prev->integer);
+				//printf("curr->integer %d\n", curr->integer);
+				//printf("\n");
 				break;
 			}
 			i++;
 		}
 		if (curr->next == *a)
 		{
-			printf("curr->next %p\n", curr->next);
+			//printf("curr->next %p\n", curr->next);
 			if (b < curr->next->next->integer
 				&& b > curr->integer)
 			{
-				printf("curr->next->next->integer %d\n", curr->next->next->integer);
-				printf("curr->integer %d\n", curr->integer);
-				printf("\n");
+				//printf("curr->next->next->integer %d\n", curr->next->next->integer);
+				//printf("curr->integer %d\n", curr->integer);
+				//printf("\n");
 				break;
 			}
 		}
 		if (b > curr->integer && b < curr->next->integer)
 		{
-			printf("curr->integer %d\n", curr->integer);
-			printf("curr->next->integer %d\n", curr->next->integer);
-			printf("\n");
+			//printf("curr->integer %d\n", curr->integer);
+			//printf("curr->next->integer %d\n", curr->next->integer);
+			//printf("\n");
 			break;
 		}
 		curr = curr->next;
