@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 23:25:35 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/23 01:58:11 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/26 17:55:34 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void
 	printf("topb = %d\n", topb);
 	printf("a->next->int = %d\n", (*a)->next->integer);
 	printf("b->next->int = %d\n", (*b)->next->integer);
+
 	while ((*a)->next->integer != topa
 		|| (*b)->next->integer != topb)
 	{
@@ -54,6 +55,22 @@ void
 		{
 			ft_reverse_rotate_both(a, b);
 			mova--;
+			movb--;
+		}
+		else if (mova && movb && mova <= half && movb <= half)
+		{
+			ft_rotate_both(a, b);
+			mova--;
+			movb--;
+		}
+		else if (mova && mova <= half)
+		{
+			ft_rotate_stack(a, 'a');
+			mova--;
+		}
+		else if (movb && movb <= half)
+		{
+			ft_rotate_stack(b, 'b');
 			movb--;
 		}
 		else if (mova > half)
