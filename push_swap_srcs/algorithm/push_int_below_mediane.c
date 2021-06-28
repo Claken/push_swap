@@ -6,7 +6,7 @@
 /*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 19:46:56 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/27 01:20:31 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/06/28 21:37:51 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void
 {
 	t_stack	*svg;
 	int		size;
+	int		val;
 
 	while ((*a)->next->integer < med
 		&& (*a)->next->integer != min)
@@ -47,8 +48,9 @@ void
 	{
 		if ((*a)->integer < med && (*a)->integer != min)
 		{
-			ft_how_you_rotate((*a)->integer, (size / 2), a, 'a');
+			val = (*a)->integer;
 			*a = svg;
+			ft_how_you_rotate(val, (size / 2), a, 'a');
 			ft_push_b_or_rotate_a(a, b, med, min);
 		}
 		*a = (*a)->next;
