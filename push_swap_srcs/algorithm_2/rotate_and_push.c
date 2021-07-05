@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 23:25:35 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/27 00:51:18 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/04 12:00:03 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ void
 	topa = ft_find_nb_to_put_on_top(a, mova);
 	topb = ft_find_nb_to_put_on_top(b, movb);
 /*
-	printf("mova = %d\n", mova);
-	printf("movb = %d\n", movb);
 	printf("half = %d\n", half);
 	printf("topa = %d\n", topa);
 	printf("topb = %d\n", topb);
@@ -51,35 +49,43 @@ void
 	while ((*a)->next->integer != topa
 		|| (*b)->next->integer != topb)
 	{
+		//printf("mova = %d\n", mova);
+		//printf("movb = %d\n", movb);
 		if (mova > half && movb > half)
 		{
+			//printf("1\n");
 			ft_reverse_rotate_both(a, b);
 			mova--;
 			movb--;
 		}
 		else if (mova && movb && mova <= half && movb <= half)
 		{
+			//printf("2\n");
 			ft_rotate_both(a, b);
 			mova--;
 			movb--;
 		}
 		else if (mova && mova <= half)
 		{
+			//printf("3\n");
 			ft_rotate_stack(a, 'a');
 			mova--;
 		}
 		else if (movb && movb <= half)
 		{
+			//printf("4\n");
 			ft_rotate_stack(b, 'b');
 			movb--;
 		}
 		else if (mova > half)
 		{
+			//printf("5\n");
 			ft_reverse_rotate_stack(a, 'a');
 			mova--;
 		}
 		else if (movb > half)
 		{
+			//printf("6\n");
 			ft_reverse_rotate_stack(b, 'b');
 			movb--;
 		}

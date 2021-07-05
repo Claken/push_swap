@@ -6,7 +6,7 @@
 /*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 19:46:56 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/28 21:37:51 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/05 02:14:01 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void
 		i++;
 		curr = curr->next;
 	}
-	if (i < half)
+	if (i <= half)
 		ft_rotate_stack(root, c);
 	else
 		ft_reverse_rotate_stack(root, c);
