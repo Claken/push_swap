@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 17:01:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/06 03:30:31 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/08 03:35:01 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,28 +42,25 @@ static void
 	max = ft_find_max(a);
 	if (ft_stack_size(*a) > 3)
 	{
-		printf("1\n");
+		//printf("1\n");
 		//printf("med = %d\n", med);
 		ft_push_b_or_rotate_a(a, b, med, min);
-		printf("2\n");
+		//printf("2\n");
 		ft_push_the_rest_in_b(a, b, max, min);
-		//ft_push_b_or_rotate_a(a, b, third);
 	}
-	printf("3\n");
+	//printf("3\n");
 	ft_sort_three_integers(a);
 	while ((*b)->next != *b)
 	{
-		printf("4\n");
+		//printf("4\n");
 		//printf("best move : %d\n", ft_check_best_move(a, b));
 		ft_rotate_and_push(a, b, ft_check_best_move(a, b));
 	}
 	while (!ft_check_if_sorted(*a))
 	{
-		printf("5\n");
+		//printf("5\n");
 		ft_reverse_rotate_stack(a, 'a');
 	}
-	//if ((*b)->next != *b)
-	//	ft_rotate_b_or_push_a(a, b);
 }
 
 int
@@ -82,7 +79,7 @@ int
 		return (0);
 	ft_sorting_stack_a(&stack_a, &stack_b);
 
-	ft_print_stack(&stack_a, &stack_b);
+	//ft_print_stack(&stack_a, &stack_b);
 
 	ft_clear_stack(&stack_a);
 	ft_clear_stack(&stack_b);
