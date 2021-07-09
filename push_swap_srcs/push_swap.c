@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 17:01:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/08 03:35:01 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/09 03:15:29 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,32 @@ static int
 		curr = curr->next;
 	}
 	return (1);
+}
+
+static void
+	ft_final_rotations(t_stack **a)
+{
+	int		half;
+	int		i;
+	t_stack	*curr;
+
+	half = ft_stack_size(*a) / 2;
+	i = 1;
+	curr = (*a)->next;
+	while (curr->integer < curr->next->integer)
+	{
+		i++;
+		curr = curr->next;
+	}
+	//printf("i = %d\n", i);
+	//printf("half = %d\n", half);
+	while (!ft_check_if_sorted(*a))
+	{
+		if (i > half)
+			ft_reverse_rotate_stack(a, 'a');
+		else
+			ft_rotate_stack(a, 'a');
+	}
 }
 
 static void
@@ -56,11 +82,9 @@ static void
 		//printf("best move : %d\n", ft_check_best_move(a, b));
 		ft_rotate_and_push(a, b, ft_check_best_move(a, b));
 	}
-	while (!ft_check_if_sorted(*a))
-	{
-		//printf("5\n");
-		ft_reverse_rotate_stack(a, 'a');
-	}
+	//printf("5\n");
+	if (!ft_check_if_sorted(*a))
+		ft_final_rotations(a);
 }
 
 int
