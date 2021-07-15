@@ -4,7 +4,9 @@ LIBFT		= libft
 
 NAME_LIBFT	= libft/libft.a
 
-CC			= gcc
+CCL			= clang
+
+CCM			= gcc
 
 SRC			= push_swap_srcs/push_swap.c \
 			push_swap_srcs/check_data/check_params.c \
@@ -22,6 +24,7 @@ SRC			= push_swap_srcs/push_swap.c \
 			push_swap_srcs/algorithm/push_int_below_mediane.c \
 			push_swap_srcs/algorithm/sort_three_integers.c \
 			push_swap_srcs/algorithm/push_the_rest_in_b.c \
+			push_swap_srcs/algorithm/push_min_in_b.c \
 			push_swap_srcs/algorithm_2/check_best_move.c \
 			push_swap_srcs/algorithm_2/rotate_and_push.c \
 			print_stack.c \
@@ -33,13 +36,13 @@ DEP			= $(SRC:.c=.d)
 all:		$(NAME)
 
 %.o : %.c
-			$(CC) -I . -o $@ -c $<
+			$(CCL) -I . -o $@ -c $<
 
 $(NAME_LIBFT):
 			make -C $(LIBFT)
 
 $(NAME):	$(NAME_LIBFT) $(OBJ)
-			$(CC) $(OBJ) $(NAME_LIBFT) -o $(NAME)
+			$(CCL) $(OBJ) $(NAME_LIBFT) -o $(NAME)
 
 clean:
 			rm -rf $(OBJ)

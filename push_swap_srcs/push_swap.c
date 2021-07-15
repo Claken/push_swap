@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 17:01:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/09 03:15:29 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/14 19:40:09 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,21 +58,20 @@ static void
 	ft_sorting_stack_a(t_stack **a, t_stack **b)
 {
 	int	med;
-	int	third;
 	int	min;
 	int	max;
 
 	med = ft_find_mediane(a);
-	third = ft_find_third_greater(a);
 	min = ft_find_min(a);
 	max = ft_find_max(a);
 	if (ft_stack_size(*a) > 3)
 	{
 		//printf("1\n");
 		//printf("med = %d\n", med);
-		ft_push_b_or_rotate_a(a, b, med, min);
+		//ft_push_b_or_rotate_a(a, b, med, min);
+		ft_rotate_a_or_push_b(a, b);
 		//printf("2\n");
-		ft_push_the_rest_in_b(a, b, max, min);
+		//ft_push_the_rest_in_b(a, b, max, min);
 	}
 	//printf("3\n");
 	ft_sort_three_integers(a);
@@ -80,7 +79,8 @@ static void
 	{
 		//printf("4\n");
 		//printf("best move : %d\n", ft_check_best_move(a, b));
-		ft_rotate_and_push(a, b, ft_check_best_move(a, b));
+		//ft_rotate_and_push(a, b, ft_check_best_move(a, b));
+		ft_push_stack_a(a, b, 'a');
 	}
 	//printf("5\n");
 	if (!ft_check_if_sorted(*a))

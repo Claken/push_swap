@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_int_back_in_a.c                               :+:      :+:    :+:   */
+/*   push_min_in_b.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 19:48:15 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/14 07:36:23 by sachouam         ###   ########.fr       */
+/*   Created: 2021/07/14 18:56:52 by sachouam          #+#    #+#             */
+/*   Updated: 2021/07/14 19:13:35 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,35 +32,17 @@ static void
 }
 
 void
-	ft_rotate_b_or_push_a(t_stack **a, t_stack **b)
+	ft_rotate_a_or_push_b(t_stack **a, t_stack **b)
 {
 	int	min;
 	int	half;
 
-	while ((*b)->next != *b)
+	while (ft_stack_size(*a) > 3)
 	{
-		min = ft_find_min(b);
-		half = ft_stack_size(*b) / 2;
-		while ((*b)->next->integer != min)
-			ft_how_you_rotate(min, half, b, 'b');
-		ft_push_stack_a(a, b, 'a');
+		min = ft_find_min(a);
+		half = ft_stack_size(*a) / 2;
+		while ((*a)->next->integer != min)
+			ft_how_you_rotate(min, half, a, 'a');
+		ft_push_stack_b(a, b, 'b');
 	}
 }
-
-/*
-void
-	ft_rotate_b_or_push_a(t_stack **a, t_stack **b)
-{
-	int	max;
-	int	half;
-
-	while ((*b)->next != *b)
-	{
-		max = ft_find_max(b);
-		half = ft_stack_size(*b) / 2;
-		while ((*b)->next->integer != max)
-			ft_how_you_rotate(max, half, b, 'b');
-		ft_push_stack_a(a, b, 'a');
-	}
-}
-*/
