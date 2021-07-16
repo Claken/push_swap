@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:24:19 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/14 19:16:51 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/16 19:37:04 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void				ft_clear_stack(t_stack **stack);
 t_stack				*ft_create_list(void);
 int					ft_stack_size(t_stack *root);
 
-int					ft_create_stack_a(t_stack **stack, int ac, char **av);
+int					ft_create_stack(t_stack **stack, int ac, char **av);
 
 void				ft_swap_stack(t_stack **stack, char c);
 void				ft_push_stack_a(t_stack **stack_a,
@@ -55,13 +55,13 @@ int					ft_find_max(t_stack **root);
 int					ft_find_min(t_stack **root);
 //void				ft_how_you_rotate(int val, int half, t_stack **root, int c);
 
-void				ft_rotate_a_or_push_b(t_stack **a, t_stack **b);
-
 void				ft_rotate_b_or_push_a(t_stack **a, t_stack **b);
+
+void				ft_rotate_a_or_push_b(t_stack **sa, t_stack **sb, char a, char b);
 
 void				ft_push_the_rest_in_b(t_stack **a, t_stack **b, int max, int min);
 void				ft_push_b_or_rotate_a(t_stack **a, t_stack **b, int med, int min);
-void				ft_sort_three_integers(t_stack **a);
+void				ft_sort_three_integers(t_stack **stack, char a);
 
 void				ft_swap_both(t_stack **a, t_stack **b);
 void				ft_rotate_both(t_stack **a, t_stack **b);
@@ -80,5 +80,8 @@ int					ft_check_nb_of_move_for_b(t_stack **b, int bi);
 int					ft_check_best_move(t_stack **a, t_stack **b);
 void				ft_rotate_and_push(t_stack **a, t_stack **b, int bi);
 
+void				ft_insert_sort_stack(t_stack **one, t_stack **two, char a, char b);
+
+void				ft_chunk_stack(t_stack **stack);
 
 #endif

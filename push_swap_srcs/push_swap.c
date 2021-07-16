@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 17:01:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/14 19:40:09 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/16 19:57:03 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,12 @@ static void
 		//printf("1\n");
 		//printf("med = %d\n", med);
 		//ft_push_b_or_rotate_a(a, b, med, min);
-		ft_rotate_a_or_push_b(a, b);
+		ft_rotate_a_or_push_b(a, b, 'a', 'b');
 		//printf("2\n");
 		//ft_push_the_rest_in_b(a, b, max, min);
 	}
 	//printf("3\n");
-	ft_sort_three_integers(a);
+	ft_sort_three_integers(a, 'a');
 	while ((*b)->next != *b)
 	{
 		//printf("4\n");
@@ -92,20 +92,36 @@ int
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	t_stack	*stack_c;
+	t_stack	*stack_d;
 
 	if (ac < 2 || !ft_check_params(++av))
 		return (0);
 	stack_a = ft_create_list();
 	stack_b = ft_create_list();
+	stack_c = ft_create_list();
+	stack_d = ft_create_list();
 	if (stack_a == NULL || stack_b == NULL)
 		return (0);
-	if (!ft_create_stack_a(&stack_a, ac, av))
+	if (stack_c == NULL || stack_d == NULL)
 		return (0);
-	ft_sorting_stack_a(&stack_a, &stack_b);
+	if (!ft_create_stack(&stack_a, ac, av))
+		return (0);
+	if (!ft_create_stack(&stack_c, ac, av))
+		return (0);
+	//ft_sorting_stack_a(&stack_a, &stack_b);
+
+	//ft_insert_sort_stack(&stack_a, &stack_b, 'a', 'b');
+	ft_insert_sort_stack(&stack_c, &stack_d, 0, 0);
 
 	//ft_print_stack(&stack_a, &stack_b);
+	ft_print_stack(&stack_c, &stack_d);
+
+	ft_chunk_stack(&stack_c);
 
 	ft_clear_stack(&stack_a);
 	ft_clear_stack(&stack_b);
+	ft_clear_stack(&stack_c);
+	ft_clear_stack(&stack_d);
 	return (0);
 }

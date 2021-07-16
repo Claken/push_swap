@@ -6,7 +6,7 @@
 /*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 19:44:12 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/09 02:41:21 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/16 19:02:18 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,24 @@ static int
 }
 
 void
-	ft_sort_three_integers(t_stack **a)
+	ft_sort_three_integers(t_stack **stack, char a)
 {
 	int	top;
 	int	middle;
 	int	bottom;
 
-	while (!check_if_ascending_order(a))
+	while (!check_if_ascending_order(stack))
 	{
-		top = (*a)->next->integer;
-		middle = (*a)->next->next->integer;
-		bottom = (*a)->next->next->next->integer;
+		top = (*stack)->next->integer;
+		middle = (*stack)->next->next->integer;
+		bottom = (*stack)->next->next->next->integer;
 		if ((top > middle && middle < bottom && bottom > top)
 			|| (top > middle && middle > bottom && bottom < top)
 			|| (top < middle && middle > bottom && bottom > top))
-			ft_swap_stack(a, 'a');
+			ft_swap_stack(stack, a);
 		else if (top > middle && middle < bottom && bottom < top)
-			ft_rotate_stack(a, 'a');
+			ft_rotate_stack(stack, a);
 		else if (top < middle && middle > bottom && bottom < top)
-			ft_reverse_rotate_stack(a, 'a');
+			ft_reverse_rotate_stack(stack, a);
 	}
 }

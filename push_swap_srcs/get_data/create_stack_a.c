@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 23:41:05 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/09 16:33:09 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/16 19:09:48 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int
 }
 
 int
-	ft_create_stack_a(t_stack **stack, int ac, char **av)
+	ft_create_stack(t_stack **stack, int ac, char **av)
 {
 	int	i;
 

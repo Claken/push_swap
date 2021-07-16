@@ -27,6 +27,8 @@ SRC			= push_swap_srcs/push_swap.c \
 			push_swap_srcs/algorithm/push_min_in_b.c \
 			push_swap_srcs/algorithm_2/check_best_move.c \
 			push_swap_srcs/algorithm_2/rotate_and_push.c \
+			push_swap_srcs/algorithm_2/sorting_stack.c \
+			push_swap_srcs/handling_stack_c_and_d/chunk_stack.c \
 			print_stack.c \
 
 OBJ			= $(SRC:.c=.o)
