@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:24:19 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/16 19:37:04 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/17 14:43:42 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,8 @@ void				ft_rotate_and_push(t_stack **a, t_stack **b, int bi);
 void				ft_insert_sort_stack(t_stack **one, t_stack **two, char a, char b);
 
 void				ft_chunk_stack(t_stack **stack);
+float				ft_find_chunk_stack(t_stack **root);
+int					ft_hold_first(t_stack **root, float chunk);
+int					ft_hold_second(t_stack **root, float chunk);
 
 #endif

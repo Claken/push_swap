@@ -6,13 +6,13 @@
 /*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 19:16:47 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/17 00:55:43 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/17 14:29:39 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-static float
+float
 	ft_find_chunk_stack(t_stack **root)
 {
 	float	chunk;
@@ -26,7 +26,7 @@ static float
 	return (chunk);
 }
 
-static int
+int
 	ft_hold_first(t_stack **root, float chunk)
 {
 	t_stack	*curr;
@@ -37,7 +37,7 @@ static int
 	return (curr->integer);
 }
 
-static int
+int
 	ft_hold_second(t_stack **root, float chunk)
 {
 	t_stack	*curr;

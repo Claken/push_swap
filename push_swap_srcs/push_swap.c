@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 17:01:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/17 00:55:47 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/17 14:44:33 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ int
 	t_stack	*stack_b;
 	t_stack	*stack_c;
 	t_stack	*stack_d;
+	float	chunk;
 
 	if (ac < 2 || !ft_check_params(++av))
 		return (0);
@@ -113,11 +114,11 @@ int
 
 	//ft_insert_sort_stack(&stack_a, &stack_b, 'a', 'b');
 	ft_insert_sort_stack(&stack_c, &stack_d, 0, 0);
-
+	chunk = ft_find_chunk_stack(&stack_c);
 	//ft_print_stack(&stack_a, &stack_b);
 	ft_print_stack(&stack_c, &stack_d);
 
-	ft_chunk_stack(&stack_c);
+	//ft_chunk_stack(&stack_c);
 
 	ft_clear_stack(&stack_a);
 	ft_clear_stack(&stack_b);
