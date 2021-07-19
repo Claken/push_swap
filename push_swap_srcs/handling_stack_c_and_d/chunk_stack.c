@@ -6,7 +6,7 @@
 /*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 19:16:47 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/17 14:29:39 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/19 16:09:51 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,42 @@ float
 }
 
 int
-	ft_hold_first(t_stack **root, float chunk)
+	ft_find_chunk_int_max(t_stack **root, float chunk)
+{
+	int		i;
+	t_stack	*curr;
+
+	i = -1;
+	curr = *root;
+	while (++i < chunk)
+		curr = curr->next;
+	return (curr->integer);
+}
+/*
+int
+	ft_find_chunk_int_min(t_stack **root, float chunk)
+{
+
+}
+*/
+int
+	ft_hold_first(t_stack **root, int chunkmax)
 {
 	t_stack	*curr;
 
 	curr = (*root)->next;
-	while (curr->integer > chunk)
+	while (curr->integer > chunkmax)
 		curr = curr->next;
 	return (curr->integer);
 }
 
 int
-	ft_hold_second(t_stack **root, float chunk)
+	ft_hold_second(t_stack **root, int chunkmax)
 {
 	t_stack	*curr;
 
 	curr = (*root)->prev;
-	while (curr->integer > chunk)
+	while (curr->integer > chunkmax)
 		curr = curr->prev;
 	return (curr->integer);
 }
@@ -51,9 +70,10 @@ int
 void
 	ft_chunk_stack(t_stack **stack)
 {
-	int		i;
+	float	i;
 	float	chunk;
 	float	newchunk;
+	int		chunkmax;
 	int		size;
 	t_stack	*curr;
 
@@ -70,12 +90,9 @@ void
 	{
 		newchunk += chunk;
 		printf("newchunk = %f\n", newchunk);
-		while (i < newchunk)
-		{
-			i++;
-			curr = curr->next;
-		}
-		printf("i = %d\n", i);
-		printf("curr->int = %d\n", curr->integer);
+		chunkmax = ft_find_chunk_int_max(stack, newchunk);
+		printf("chunkmax = %d\n", chunkmax);
+		printf("i = %f\n", i);
+		i += chunk;
 	}
 }

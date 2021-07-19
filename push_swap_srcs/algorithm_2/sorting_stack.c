@@ -6,14 +6,15 @@
 /*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 18:23:41 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/16 22:13:53 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/17 22:54:16 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
 void
-	ft_insert_sort_stack(t_stack **one, t_stack **two, char a, char b)
+	ft_insert_sort_stack(t_stack **one, t_stack **two,
+	char a, char b)
 {
 	int	med;
 	int	min;

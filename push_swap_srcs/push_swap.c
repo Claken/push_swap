@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 17:01:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/17 14:44:33 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/19 16:10:18 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,94 @@ static void
 		ft_final_rotations(a);
 }
 
+static int
+	ft_check_int_to_put_on_top(t_stack **a, int chunkmax)
+{
+	int		holdone;
+	int		holdtwo;
+	int		i;
+	int		j;
+	t_stack	*curr;
+
+	holdone = ft_hold_first(a, chunkmax);
+	holdtwo = ft_hold_second(a, chunkmax);
+	i = 0;
+	j = 0;
+	curr = (*a)->next;
+	while (curr->integer != holdone)
+	{
+		i++;
+		curr = curr->next;
+	}
+	curr = (*a)->prev;
+	while (curr->integer != holdtwo)
+	{
+		j++;
+		curr = curr->prev;
+	}
+	if (i < j)
+		return (holdone);
+	return (holdtwo);
+}
+
+static void
+	ft_mov_int_to_top_then_push(t_stack **a, t_stack **b, int chunkmax)
+{
+	int		topa;
+	int		half;
+	int		i;
+	t_stack	*curr;
+
+	topa = ft_check_int_to_put_on_top(a, chunkmax);
+	half = ft_stack_size(*a) / 2;
+	i = 0;
+	curr = (*a)->next;
+	while (curr->integer != topa)
+	{
+		i++;
+		curr = curr->next;
+	}
+	while ((*a)->next->integer != topa)
+	{
+		if (i <= half)
+			ft_rotate_stack(a, 'a');
+		else
+			ft_reverse_rotate_stack(a, 'a');
+	}
+	ft_push_stack_a(a, b, 'a');
+}
+
+static void
+	ft_sorting_stack_a_02(t_stack **a, t_stack **b,
+		t_stack **c, t_stack **d)
+{
+	int		size;
+	float	div;
+	float	chunk;
+	int		chunkmax;
+
+	size = ft_stack_size(*a);
+	chunk = 0;
+	if (size < 100)
+	{
+		ft_insert_sort_stack(a, b, 'a', 'b');
+	}
+	else
+	{
+		div = ft_find_chunk_stack(a);
+		ft_insert_sort_stack(c, d, 0, 0);
+		//while ((*a)->next != *a)
+		while ((int)chunk < size)
+		{
+			chunk += div;
+			chunkmax = ft_find_chunk_int_max(c, chunk);
+			printf("chunkmax = %d\n", chunkmax);
+			printf("topa = %d\n", ft_check_int_to_put_on_top(a, chunkmax));
+			//ft_mov_int_to_top_then_push(a, c, chunkmax);
+		}
+	}
+}
+
 int
 	main(int ac, char **av)
 {
@@ -102,22 +190,25 @@ int
 	stack_b = ft_create_list();
 	stack_c = ft_create_list();
 	stack_d = ft_create_list();
-	if (stack_a == NULL || stack_b == NULL)
+	if (stack_a == NULL || stack_b == NULL
+		|| stack_c == NULL || stack_d == NULL)
 		return (0);
-	if (stack_c == NULL || stack_d == NULL)
-		return (0);
-	if (!ft_create_stack(&stack_a, ac, av))
-		return (0);
-	if (!ft_create_stack(&stack_c, ac, av))
+	if (!ft_create_stack(&stack_a, ac, av)
+		|| !ft_create_stack(&stack_c, ac, av))
 		return (0);
 	//ft_sorting_stack_a(&stack_a, &stack_b);
+	ft_insert_sort_stack(&stack_c, &stack_d, 0, 0);
+	ft_sorting_stack_a_02(&stack_a, &stack_b, &stack_c, &stack_d);
 
 	//ft_insert_sort_stack(&stack_a, &stack_b, 'a', 'b');
-	ft_insert_sort_stack(&stack_c, &stack_d, 0, 0);
-	chunk = ft_find_chunk_stack(&stack_c);
+	//chunk = ft_find_chunk_stack(&stack_c);
 	//ft_print_stack(&stack_a, &stack_b);
+	/*
 	ft_print_stack(&stack_c, &stack_d);
-
+	printf("chunk = %f\n", chunk);
+	printf("hold_first   = %d\n", ft_hold_first(&stack_a, chunk));
+	printf("hold_second  = %d\n", ft_hold_second(&stack_a, chunk));
+	*/
 	//ft_chunk_stack(&stack_c);
 
 	ft_clear_stack(&stack_a);
