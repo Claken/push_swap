@@ -6,7 +6,7 @@
 /*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 19:16:47 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/19 16:09:51 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/20 01:24:09 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,22 @@ int
 		curr = curr->next;
 	return (curr->integer);
 }
-/*
-int
-	ft_find_chunk_int_min(t_stack **root, float chunk)
-{
 
+int
+	ft_find_chunk_int_min(t_stack **root, float chunk, float div)
+{
+	int		i;
+	float	chunkmin;
+	t_stack	*curr;
+
+	i = -1;
+	chunkmin = chunk - div;
+	curr = *root;
+	while (++i < chunkmin)
+		curr = curr->next;
+	return (curr->integer);
 }
-*/
+
 int
 	ft_hold_first(t_stack **root, int chunkmax)
 {

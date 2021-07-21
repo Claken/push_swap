@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 17:01:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/19 16:10:18 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/22 01:30:28 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ static int
 }
 
 static void
-	ft_mov_int_to_top_then_push(t_stack **a, t_stack **b, int chunkmax)
+	ft_mov_int_to_top(t_stack **a, int chunkmax)
 {
 	int		topa;
 	int		half;
@@ -141,7 +141,27 @@ static void
 		else
 			ft_reverse_rotate_stack(a, 'a');
 	}
-	ft_push_stack_a(a, b, 'a');
+}
+
+static int
+	ft_check_if_chunk_is_out(t_stack **a, int min, int max)
+{
+	t_stack	*curr;
+
+	curr = (*a)->next;
+	//printf("min = %d\n", min);
+	//printf("max = %d\n", max);
+	while (curr != *a)
+	{
+		if (curr->integer >= min && curr->integer <= max)
+		{
+			//printf("curr->int = %d\n", curr->integer);
+			return (0);
+		}
+		curr = curr->next;
+	}
+	//printf("1\n");
+	return (1);
 }
 
 static void
@@ -152,6 +172,7 @@ static void
 	float	div;
 	float	chunk;
 	int		chunkmax;
+	int		chunkmin;
 
 	size = ft_stack_size(*a);
 	chunk = 0;
@@ -163,15 +184,21 @@ static void
 	{
 		div = ft_find_chunk_stack(a);
 		ft_insert_sort_stack(c, d, 0, 0);
-		//while ((*a)->next != *a)
-		while ((int)chunk < size)
+		while ((*a)->next != *a)
 		{
 			chunk += div;
 			chunkmax = ft_find_chunk_int_max(c, chunk);
-			printf("chunkmax = %d\n", chunkmax);
-			printf("topa = %d\n", ft_check_int_to_put_on_top(a, chunkmax));
-			//ft_mov_int_to_top_then_push(a, c, chunkmax);
+			chunkmin = ft_find_chunk_int_min(c, chunk, div);
+			//printf("chunkmin = %d\n", chunkmin);
+			//printf("chunkmax = %d\n", chunkmax);
+			while (!ft_check_if_chunk_is_out(a, chunkmin, chunkmax))
+			{
+				ft_mov_int_to_top(a, chunkmax);
+				ft_push_stack_b(a, b, 'b');
+			}
+			//printf("topa = %d\n", ft_check_int_to_put_on_top(a, chunkmax));
 		}
+		ft_rotate_b_or_push_a(a, b);
 	}
 }
 
@@ -182,7 +209,6 @@ int
 	t_stack	*stack_b;
 	t_stack	*stack_c;
 	t_stack	*stack_d;
-	float	chunk;
 
 	if (ac < 2 || !ft_check_params(++av))
 		return (0);
@@ -200,6 +226,7 @@ int
 	ft_insert_sort_stack(&stack_c, &stack_d, 0, 0);
 	ft_sorting_stack_a_02(&stack_a, &stack_b, &stack_c, &stack_d);
 
+	//ft_print_stack(&stack_a, &stack_b);
 	//ft_insert_sort_stack(&stack_a, &stack_b, 'a', 'b');
 	//chunk = ft_find_chunk_stack(&stack_c);
 	//ft_print_stack(&stack_a, &stack_b);

@@ -6,7 +6,7 @@
 /*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 19:48:15 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/14 07:36:23 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/22 00:54:13 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void
 	else
 		ft_reverse_rotate_stack(root, c);
 }
-
+/*
 void
 	ft_rotate_b_or_push_a(t_stack **a, t_stack **b)
 {
@@ -46,8 +46,8 @@ void
 		ft_push_stack_a(a, b, 'a');
 	}
 }
+*/
 
-/*
 void
 	ft_rotate_b_or_push_a(t_stack **a, t_stack **b)
 {
@@ -63,4 +63,3 @@ void
 		ft_push_stack_a(a, b, 'a');
 	}
 }
-*/

@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:24:19 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/19 11:28:02 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/20 01:28:04 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,6 @@ float				ft_find_chunk_stack(t_stack **root);
 int					ft_hold_first(t_stack **root, int chunkmax);
 int					ft_hold_second(t_stack **root, int chunkmax);
 int					ft_find_chunk_int_max(t_stack **root, float chunk);
+int					ft_find_chunk_int_min(t_stack **root, float chunk, float div);
 
 #endif
