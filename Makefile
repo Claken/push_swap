@@ -18,16 +18,14 @@ SRC			= push_swap_srcs/push_swap.c \
 			push_swap_srcs/get_data/create_stack_a.c \
 			push_swap_srcs/operations/the_operations_01.c \
 			push_swap_srcs/operations/the_operations_02.c \
+			push_swap_srcs/algorithm/check_int_to_put_on_top_of_a.c \
 			push_swap_srcs/algorithm/functions_for_algorithm.c \
 			push_swap_srcs/algorithm/functions_for_mediane.c \
+			push_swap_srcs/algorithm/insert_and_sort.c \
 			push_swap_srcs/algorithm/push_int_back_in_a.c \
-			push_swap_srcs/algorithm/push_int_below_mediane.c \
-			push_swap_srcs/algorithm/sort_three_integers.c \
-			push_swap_srcs/algorithm/push_the_rest_in_b.c \
 			push_swap_srcs/algorithm/push_min_in_b.c \
-			push_swap_srcs/algorithm_2/check_best_move.c \
-			push_swap_srcs/algorithm_2/rotate_and_push.c \
-			push_swap_srcs/algorithm_2/sorting_stack.c \
+			push_swap_srcs/algorithm/sorting_stack_a.c \
+			push_swap_srcs/algorithm/sort_three_integers.c \
 			push_swap_srcs/handling_stack_c_and_d/chunk_stack.c \
 			print_stack.c \
 
@@ -58,7 +56,7 @@ fclean:		clean
 re:			fclean all
 
 run:
-		make && make clean && clear
+			make && make clean && clear
 -include $(DEP)
 
 .PHONY: all clean fclean re

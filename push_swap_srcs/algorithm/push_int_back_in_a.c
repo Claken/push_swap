@@ -6,47 +6,11 @@
 /*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 19:48:15 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/22 00:54:13 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/22 10:21:04 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
-
-static void
-	ft_how_you_rotate(int val, int half, t_stack **root, int c)
-{
-	int		i;
-	t_stack	*curr;
-
-	i = 0;
-	curr = (*root)->next;
-	while (curr->integer != val)
-	{
-		i++;
-		curr = curr->next;
-	}
-	if (i <= half)
-		ft_rotate_stack(root, c);
-	else
-		ft_reverse_rotate_stack(root, c);
-}
-/*
-void
-	ft_rotate_b_or_push_a(t_stack **a, t_stack **b)
-{
-	int	min;
-	int	half;
-
-	while ((*b)->next != *b)
-	{
-		min = ft_find_min(b);
-		half = ft_stack_size(*b) / 2;
-		while ((*b)->next->integer != min)
-			ft_how_you_rotate(min, half, b, 'b');
-		ft_push_stack_a(a, b, 'a');
-	}
-}
-*/
 
 void
 	ft_rotate_b_or_push_a(t_stack **a, t_stack **b)

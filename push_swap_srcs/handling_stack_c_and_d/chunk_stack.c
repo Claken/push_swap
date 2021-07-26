@@ -6,7 +6,7 @@
 /*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 19:16:47 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/20 01:24:09 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/22 10:59:16 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,34 +74,4 @@ int
 	while (curr->integer > chunkmax)
 		curr = curr->prev;
 	return (curr->integer);
-}
-
-void
-	ft_chunk_stack(t_stack **stack)
-{
-	float	i;
-	float	chunk;
-	float	newchunk;
-	int		chunkmax;
-	int		size;
-	t_stack	*curr;
-
-	size = ft_stack_size(*stack);
-	chunk = ft_find_chunk_stack(stack);
-	printf("size = %d\n", size);
-	printf("chunk = %lf\n", chunk);
-	curr = *stack;
-	newchunk = 0;
-	i = 0;
-	printf("first  %d\n", ft_hold_first(stack, chunk));
-	printf("second %d\n", ft_hold_second(stack, chunk));
-	while (i < size)
-	{
-		newchunk += chunk;
-		printf("newchunk = %f\n", newchunk);
-		chunkmax = ft_find_chunk_int_max(stack, newchunk);
-		printf("chunkmax = %d\n", chunkmax);
-		printf("i = %f\n", i);
-		i += chunk;
-	}
 }

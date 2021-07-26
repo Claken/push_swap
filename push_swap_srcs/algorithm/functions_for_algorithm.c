@@ -6,36 +6,11 @@
 /*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 19:36:57 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/16 12:06:39 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/22 10:20:40 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
-
-int
-	ft_find_third_greater(t_stack **root)
-{
-	int		nbr;
-	t_stack	*cpy;
-	t_stack	*curr;
-
-	cpy = (*root)->next;
-	while (cpy != *root)
-	{
-		curr = (*root)->next;
-		nbr = 0;
-		while (curr != *root)
-		{
-			if (curr->integer > cpy->integer)
-				nbr++;
-			curr = curr->next;
-		}
-		if (nbr == 2)
-			return (cpy->integer);
-		cpy = cpy->next;
-	}
-	return (0);
-}
 
 int
 	ft_find_max(t_stack **root)
@@ -70,7 +45,7 @@ int
 	}
 	return (min);
 }
-/*
+
 void
 	ft_how_you_rotate(int val, int half, t_stack **root, int c)
 {
@@ -84,9 +59,8 @@ void
 		i++;
 		curr = curr->next;
 	}
-	if (i < half)
+	if (i <= half)
 		ft_rotate_stack(root, c);
 	else
 		ft_reverse_rotate_stack(root, c);
 }
-*/
