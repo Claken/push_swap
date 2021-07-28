@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 17:01:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/22 15:55:55 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/27 02:47:57 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ int
 		|| !ft_create_stack(&stack_c, ac, av))
 		return (0);
 	ft_sorting_stack_a(&stack_a, &stack_b, &stack_c, &stack_d);
-
-	//ft_print_stack(&stack_a, &stack_b);
-
 	ft_clear_stack(&stack_a);
 	ft_clear_stack(&stack_b);
 	ft_clear_stack(&stack_c);

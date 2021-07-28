@@ -6,7 +6,7 @@
 /*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 19:16:47 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/22 10:59:16 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/26 23:18:46 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ float
 
 	size = ft_stack_size(*root);
 	if (size >= 100 && size < 500)
-		chunk = (double)size / 5;
+		chunk = (double)size / 6;
 	else if (size >= 500)
-		chunk = (double)size / 11;
+		chunk = (double)size / 13;
 	return (chunk);
 }
 

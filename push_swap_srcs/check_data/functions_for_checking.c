@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 18:11:11 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/02 17:08:27 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/27 02:27:47 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int
 		while (tab[i][++j])
 			if (!ft_isdigit((tab[i][j])))
 				if (!(tab[i][j] == '-' && ft_isdigit(tab[i][j + 1]) && j == 0))
-					return (ft_error_exit("non-numerical parameter.s\n"));
+					return (ft_error_exit());
 	}
 	return (1);
 }
@@ -41,7 +41,7 @@ int
 	{
 		nbr = ft_atoi(tab[i]);
 		if (nbr > MAXINT || nbr < -MININT)
-			return (ft_error_exit("integer out of limits\n"));
+			return (ft_error_exit());
 	}
 	return (1);
 }
@@ -66,7 +66,7 @@ int
 				count++;
 		}
 		if (count > 1)
-			return (ft_error_exit("duplicate in the parameters\n"));
+			return (ft_error_exit());
 	}
 	return (1);
 }

@@ -6,16 +6,15 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 18:26:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/06/12 02:16:15 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/26 23:09:37 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
 int
-	ft_error_exit(char *sentence)
+	ft_error_exit(void)
 {
 	ft_putstr_fd("Error\n", 1);
-	ft_putstr_fd(sentence, 1);
 	return (0);
 }

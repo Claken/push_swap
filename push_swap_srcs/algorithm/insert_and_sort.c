@@ -6,7 +6,7 @@
 /*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 18:23:41 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/17 22:54:16 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/28 03:00:43 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ void
 	max = ft_find_max(one);
 	if (ft_stack_size(*one) > 3)
 		ft_rotate_a_or_push_b(one, two, a, b);
-	ft_sort_three_integers(one, a);
+	if (ft_stack_size(*one) == 2)
+		ft_swap_stack(one, a);
+	else
+		ft_sort_three_integers(one, a);
 	while ((*two)->next != *two)
 		ft_push_stack_a(one, two, a);
 }

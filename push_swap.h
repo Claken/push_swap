@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:24:19 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/22 11:23:51 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/26 23:18:28 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,19 @@ void				ft_how_you_rotate(int val, int half, t_stack **root, int c);
 
 int					ft_find_mediane(t_stack **root);
 
-void				ft_insert_sort_stack(t_stack **one, t_stack **two, char a, char b);
+void				ft_insert_sort_stack(t_stack **one, t_stack **two,
+						char a, char b);
 
 void				ft_rotate_b_or_push_a(t_stack **a, t_stack **b);
 
-void				ft_rotate_a_or_push_b(t_stack **sa, t_stack **sb, char a, char b);
+void				ft_rotate_a_or_push_b(t_stack **sa, t_stack **sb,
+						char a, char b);
 
 void				ft_sort_three_integers(t_stack **stack, char a);
 
 int					ft_check_params(char **av);
 
-int					ft_error_exit(char *sentence);
+int					ft_error_exit(void);
 
 int					ft_check_if_num_params(char **tab);
 int					ft_check_int_min_and_max(char **tab);
@@ -55,7 +57,8 @@ int					ft_create_stack(t_stack **stack, int ac, char **av);
 float				ft_find_chunk_stack(t_stack **root);
 
 int					ft_find_chunk_int_max(t_stack **root, float chunk);
-int					ft_find_chunk_int_min(t_stack **root, float chunk, float div);
+int					ft_find_chunk_int_min(t_stack **root, float chunk,
+						float div);
 int					ft_hold_first(t_stack **root, int chunkmax);
 int					ft_hold_second(t_stack **root, int chunkmax);
 
