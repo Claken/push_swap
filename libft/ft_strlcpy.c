@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 12:41:25 by sachouam          #+#    #+#             */
-/*   Updated: 2019/10/24 15:25:07 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/28 04:06:21 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	unsigned int i;
-	unsigned int len;
+	unsigned int	i;
+	unsigned int	len;
 
 	i = 0;
 	len = ft_strlen(src);

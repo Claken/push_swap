@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 18:07:12 by sachouam          #+#    #+#             */
-/*   Updated: 2019/10/28 17:37:43 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/28 12:22:11 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,19 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char *substr;
+	char	*substr;
 
 	if (!s)
 		return (NULL);
 	if (start > (unsigned int)ft_strlen(s))
 	{
-		if (!(substr = ft_calloc(1, 1)))
+		substr = ft_calloc(1, 1);
+		if (!substr)
 			return (NULL);
 		return (substr);
 	}
-	if (!(substr = malloc(sizeof(char) * (len + 1))))
+	substr = malloc(sizeof(char) * (len + 1));
+	if (!substr)
 		return (NULL);
 	ft_strlcpy(substr, s + start, (len + 1));
 	return (substr);

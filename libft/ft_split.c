@@ -6,15 +6,16 @@
 /*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/21 17:36:48 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/24 16:51:05 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/28 12:43:15 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int		ft_char_in_charset(char c, char *str)
+int
+	ft_char_in_charset(char c, char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -26,15 +27,17 @@ int		ft_char_in_charset(char c, char *str)
 	return (0);
 }
 
-char	*ft_copy_case_tab(char *str, char *charset)
+char
+	*ft_copy_case_tab(char *str, char *charset)
 {
-	int i;
-	char*tab;
+	int		i;
+	char	*tab;
 
 	i = 0;
 	while (!(ft_char_in_charset(str[i], charset)) && str[i])
 		i++;
-	if (!(tab = malloc(sizeof(char) * (i + 1))))
+	tab = malloc(sizeof(char) * (i + 1));
+	if (!tab)
 		return (NULL);
 	i = 0;
 	while (!(ft_char_in_charset(str[i], charset)) && str[i])
@@ -46,9 +49,10 @@ char	*ft_copy_case_tab(char *str, char *charset)
 	return (tab);
 }
 
-int		ft_count_words(char *str, char *charset)
+int
+	ft_count_words(char *str, char *charset)
 {
-	int nb;
+	int	nb;
 	int	i;
 
 	i = 0;
@@ -67,7 +71,8 @@ int		ft_count_words(char *str, char *charset)
 	return (nb);
 }
 
-char	**ft_split(char *str, char *charset)
+char
+	**ft_split(char *str, char *charset)
 {
 	char	**tab;
 	int		nb;
@@ -77,13 +82,15 @@ char	**ft_split(char *str, char *charset)
 	nb = ft_count_words(str, charset);
 	i = 0;
 	j = 0;
-	if (!(tab = malloc(sizeof(char *) * (nb + 1))))
+	tab = malloc(sizeof(char *) * (nb + 1));
+	if (!tab)
 		return (NULL);
 	while (str[i])
 	{
 		if (!(ft_char_in_charset(str[i], charset)))
 		{
-			if (!(tab[j] = ft_copy_case_tab(str + i, charset)))
+			tab[j] = ft_copy_case_tab(str + i, charset);
+			if (tab[j] == NULL)
 				return (NULL);
 			while (!(ft_char_in_charset(str[i], charset)) && str[i])
 				i++;

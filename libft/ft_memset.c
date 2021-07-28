@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 15:36:51 by sachouam          #+#    #+#             */
-/*   Updated: 2019/10/09 16:09:28 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/28 12:12:16 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	while (i < len)

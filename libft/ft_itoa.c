@@ -6,13 +6,14 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 13:46:15 by sachouam          #+#    #+#             */
-/*   Updated: 2019/10/23 21:49:12 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/28 04:18:38 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		*ft_revstr(char *str)
+static char
+	*ft_revstr(char *str)
 {
 	int		i;
 	int		j;
@@ -36,13 +37,15 @@ static char		*ft_revstr(char *str)
 	return (str);
 }
 
-char			*ft_itoa(int n)
+char
+	*ft_itoa(int n)
 {
 	char	*nbr;
 	int		i;
 	long	nb;
 
-	if (!(nbr = malloc(sizeof(char) * 12)))
+	nbr = malloc(sizeof(char) * 12);
+	if (!nbr)
 		return (NULL);
 	i = 0;
 	nb = n;
@@ -54,11 +57,13 @@ char			*ft_itoa(int n)
 	else if (nb == 0)
 		nbr[i++] = nb + '0';
 	if (nb > 0)
+	{
 		while (nb != 0)
 		{
 			nbr[i++] = nb % 10 + '0';
 			nb = nb / 10;
 		}
+	}
 	nbr[i] = '\0';
 	nbr = ft_revstr(nbr);
 	return (nbr);

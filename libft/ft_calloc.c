@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 11:39:13 by sachouam          #+#    #+#             */
-/*   Updated: 2019/10/18 13:38:36 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/28 04:09:31 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	char *alloced;
+	char	*alloced;
 
-	if (!(alloced = malloc(sizeof(char) * (size * count))))
+	alloced = malloc(sizeof(char) * (size * count));
+	if (!alloced)
 		return (NULL);
 	ft_bzero(alloced, (size * count));
 	return ((void *)alloced);

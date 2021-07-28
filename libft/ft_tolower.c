@@ -6,13 +6,14 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 12:44:28 by sachouam          #+#    #+#             */
-/*   Updated: 2019/10/07 16:04:17 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/28 12:22:39 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_tolower(int c)
+int
+	ft_tolower(int c)
 {
 	if (c >= 65 && c <= 90)
 		return (c + 32);

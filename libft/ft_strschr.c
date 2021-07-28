@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 17:53:54 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/24 16:50:35 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/28 12:19:52 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int
 	ft_strschr(const char *s, char *set)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (s[i])

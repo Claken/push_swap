@@ -6,13 +6,14 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 12:16:07 by sachouam          #+#    #+#             */
-/*   Updated: 2019/10/09 21:35:16 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/28 12:23:02 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_toupper(int c)
+int
+	ft_toupper(int c)
 {
 	if (c >= 97 && c <= 122)
 		return (c - 32);

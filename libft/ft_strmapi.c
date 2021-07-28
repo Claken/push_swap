@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 18:51:15 by sachouam          #+#    #+#             */
-/*   Updated: 2019/10/16 20:52:58 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/28 12:17:18 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*newstr;
 	unsigned int	i;
 
-	if (!(newstr = malloc(sizeof(char) * (ft_strlen(s) + 1))))
+	newstr = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!newstr)
 		return (NULL);
 	i = 0;
 	while (s[i])

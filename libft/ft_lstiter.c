@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 18:08:57 by sachouam          #+#    #+#             */
-/*   Updated: 2019/10/23 19:49:22 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/28 12:00:33 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list *current;
+	t_list	*current;
 
-	if (f && (current = lst))
+	current = lst;
+	if (f && current)
 	{
 		while (current)
 		{
