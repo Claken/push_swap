@@ -6,7 +6,7 @@
 /*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/21 17:36:48 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/28 12:43:15 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/29 03:16:10 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,17 @@ int
 	return (nb);
 }
 
+static int
+	ft_set_variables(int *i, int *j, char *str, char *charset)
+{
+	int	tmp;
+
+	*i = 0;
+	*j = 0;
+	tmp = ft_count_words(str, charset);
+	return (tmp);
+}
+
 char
 	**ft_split(char *str, char *charset)
 {
@@ -79,9 +90,7 @@ char
 	int		i;
 	int		j;
 
-	nb = ft_count_words(str, charset);
-	i = 0;
-	j = 0;
+	nb = ft_set_variables(&i, &j, str, charset);
 	tab = malloc(sizeof(char *) * (nb + 1));
 	if (!tab)
 		return (NULL);

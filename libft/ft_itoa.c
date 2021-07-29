@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 13:46:15 by sachouam          #+#    #+#             */
-/*   Updated: 2021/07/28 04:18:38 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/07/29 02:05:43 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,12 @@ static char
 	return (str);
 }
 
-char
-	*ft_itoa(int n)
+void
+	ft_write_in_nbr(long n, char *nbr)
 {
-	char	*nbr;
 	int		i;
 	long	nb;
 
-	nbr = malloc(sizeof(char) * 12);
-	if (!nbr)
-		return (NULL);
 	i = 0;
 	nb = n;
 	if (nb < 0)
@@ -65,6 +61,19 @@ char
 		}
 	}
 	nbr[i] = '\0';
+}
+
+char
+	*ft_itoa(int n)
+{
+	char	*nbr;
+	long	nb;
+
+	nbr = malloc(sizeof(char) * 12);
+	if (!nbr)
+		return (NULL);
+	nb = n;
+	ft_write_in_nbr(nb, nbr);
 	nbr = ft_revstr(nbr);
 	return (nbr);
 }
