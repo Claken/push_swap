@@ -30,10 +30,12 @@ make
 ./push_swap 2 1 3 6 5 8
 ```
 
-### Verify result with checker (if available)
+### Export ARG environment variable to use it for checker
 ```bash
-ARG="2 1 3 6 5 8"
+export ARG="2 1 3 6 5 8"
 ```
+
+### Verify result with checker
 ```bash
 ./push_swap $ARG | ./checker $ARG
 ```
