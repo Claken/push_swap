@@ -1,4 +1,4 @@
-# Push Swap
+# ⇄ Push Swap
 
 A C project from the 42 curriculum where the goal is to sort integers using two stacks with a limited set of operations.
 
