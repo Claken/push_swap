@@ -20,17 +20,25 @@ This project helped me practice low-level algorithm design under constraints:
 
 ## 🚀 Usage
 
+### Build push_swap (and libft)
 ```bash
-# Build push_swap (and libft)
 make
+```
 
-# Run with a list of integers
+### Run with a list of integers
+```bash
 ./push_swap 2 1 3 6 5 8
+```
 
-# Verify result with checker (if available)
+### Verify result with checker (if available)
+```bash
 ARG="2 1 3 6 5 8"
+```
+```bash
 ./push_swap $ARG | ./checker $ARG
+```
 
-# Run benchmark script (requires ruby and checker)
+### Run benchmark script (requires ruby and checker)
+```bash
 bash tester.sh 3 5 100 500
 ```
